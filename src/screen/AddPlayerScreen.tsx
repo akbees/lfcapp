@@ -1,14 +1,19 @@
 import React from 'react';
 import {
+  Button,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
 
-function AddPlayerScreen(): JSX.Element {
-  
-  return(
-    <View><Text>Add Player</Text></View>
+function AddPlayerScreen({navigation}:any): JSX.Element {
+
+  return (
+    <View>
+    <Button title='Show Players List' onPress={() => navigation.navigate('PlayersList')} />
+    <Button title='Add Player' onPress={() => navigation.navigate('AddPlayer')} />
+      <Text>Add Player</Text>
+    </View>
   );
 }
 

@@ -6,11 +6,11 @@ import RootAppNav from './src/component/Navigation/RootAppNav';
 function App(): JSX.Element {
 
   return (
-    <AuthProvider>
-      <LoaderProvider>
+    <LoaderProvider>
+      <AuthProvider>
         <RootAppNav />
-      </LoaderProvider>
-    </AuthProvider>
+      </AuthProvider>
+    </LoaderProvider>
   );
 }
 

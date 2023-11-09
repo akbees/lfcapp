@@ -19,9 +19,10 @@ function PlayerListScreen({ navigation }: any): JSX.Element {
 }
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  btn: {
+    width: 45,
+    height: 45,
+    margin: 10,
   },
 });
 

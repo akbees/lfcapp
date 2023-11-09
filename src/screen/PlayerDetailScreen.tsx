@@ -7,13 +7,15 @@ import {
 } from 'react-native';
 
 function PlayerDetailScreen({ navigation, route }: any): JSX.Element {
-  let id = route.params.id;
-  console.log(route.params);
+  const player = route.params.player;
   
   return (
     <View>
       <Text>Players</Text>
-      <Text>Id: {id}</Text>
+      <Text>Id: {player.id}</Text>
+      <Text>Name: {player.name}</Text>
+      <Text>Position: {player.position}</Text>
+      <Text>Age: {player.age}</Text>
     </View>
   );
 }

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Button,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
+import { PlayerDataContext } from '../service/PlayerProvider';
 
 function AddPlayerScreen({navigation}:any): JSX.Element {
 

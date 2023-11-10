@@ -6,7 +6,6 @@ import {
     View,
 } from 'react-native';
 
-
 function Loader(): JSX.Element {
 
     return (

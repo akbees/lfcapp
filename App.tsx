@@ -5,7 +5,6 @@ import RootAppNav from './src/component/Navigation/RootAppNav';
 import PlayerDataProvider from './src/service/PlayerProvider';
 
 function App(): JSX.Element {
-
   return (
     <AuthProvider>
       <LoaderProvider>

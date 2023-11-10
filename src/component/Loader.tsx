@@ -6,13 +6,14 @@ import {
     View,
 } from 'react-native';
 
-function App(): JSX.Element {
-
+function Loader(): JSX.Element {
     return (
-        <View style={styles.container}>
-            <ActivityIndicator size="large" color="#1d9bf0" />
-            <Text style={styles.text}>Loading</Text>
-        </View>
+        <>
+            <View style={styles.container}>
+                <ActivityIndicator size="large" color="#1d9bf0" />
+                <Text style={styles.text}>Loading</Text>
+            </View>
+        </>
     );
 }
 
@@ -31,4 +32,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default App;
+export default Loader;

@@ -1,0 +1,128 @@
+[
+  {
+    "squadNo": "1",
+    "name": "Alisson Becker",
+    "age": 31,
+    "position": "GoalKeeper"
+  },
+  {
+    "squadNo": "4",
+    "name": "Virgil Van Dijk",
+    "age": 32,
+    "position": "Defender"
+  },
+  {
+    "squadNo": "5",
+    "name": "Ibrahimah Konate",
+    "age": 24,
+    "position": "Defender"
+  },
+  {
+    "squadNo": "26",
+    "name": "Andy Robertson",
+    "age": 29,
+    "position": "Defender"
+  },
+  {
+    "squadNo": "66",
+    "name": "Trent Alexander-Arnold",
+    "age": 25,
+    "position": "Defender"
+  },
+  {
+    "squadNo": "10",
+    "name": "Alexis Mac Allister",
+    "age": 25,
+    "position": "Midfielder"
+  },
+  {
+    "squadNo": "8",
+    "name": "Dominik Szoboszlai",
+    "age": 23,
+    "position": "Midfielder"
+  },
+  {
+    "squadNo": "38",
+    "name": "Ryan Gravenberch",
+    "age": 21,
+    "position": "Midfielder"
+  },
+  {
+    "squadNo": "11",
+    "name": "Mohamed Salah",
+    "age": 31,
+    "position": "Forward"
+  },
+  {
+    "squadNo": "9",
+    "name": "Darwin Nunez",
+    "age": 24,
+    "position": "Forward"
+  },
+  {
+    "squadNo": "7",
+    "name": "Luis Diaz",
+    "age": 26,
+    "position": "Forward"
+  },
+  {
+    "squadNo": "32",
+    "name": "Joel matip",
+    "age": 32,
+    "position": "Defender"
+  },
+  {
+    "squadNo": "2",
+    "name": "Joe Gomez",
+    "age": 26,
+    "position": "Defender"
+  },
+  {
+    "squadNo": "3",
+    "name": "Wataru Endo",
+    "age": 30,
+    "position": "Midfielder"
+  },
+  {
+    "squadNo": "17",
+    "name": "Curtis Jones",
+    "age": 22,
+    "position": "Midfielder"
+  },
+  {
+    "squadNo": "19",
+    "name": "Harvey Elliott",
+    "age": 20,
+    "position": "Midfielder"
+  },
+  {
+    "squadNo": "24",
+    "name": "Cody Gakpo",
+    "age": 31,
+    "position": "Forward"
+  },
+  {
+    "squadNo": "20",
+    "name": "Diogo Jota",
+    "age": 27,
+    "position": "Forward"
+  },
+  {
+    "squadNo": "62",
+    "name": "Caoimhin Kellerher",
+    "age": 26,
+    "position": "GoalKeeper"
+  },
+  {
+    "squadNo": "21",
+    "name": "Kostas Tsimikas",
+    "age": 27,
+    "position": "Defender"
+  },
+  {
+    "squadNo": "6",
+    "name": "Thiago Alcantara",
+    "age": 33,
+    "position": "Midfielder"
+  }
+]

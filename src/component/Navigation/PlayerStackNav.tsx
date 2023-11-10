@@ -2,10 +2,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import PlayerListScreen from '../../screen/PlayerListScreen';
 import AddPlayerScreen from '../../screen/AddPlayerScreen';
 import PlayerDetailScreen from '../../screen/PlayerDetailScreen';
+import { playerType } from '../../service/PlayerProvider';
 
-type playerNavParamsType = {
+export type playerNavParamsType = {
   PlayersList:undefined,
-  PlayerDetails: {id:number},
+  PlayerDetails: {player:playerType},
   AddPlayer: undefined
 };
 

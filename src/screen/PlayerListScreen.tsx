@@ -1,19 +1,32 @@
-import React from 'react';
-import { Button } from 'react-native';
+import React, { useContext } from 'react';
+import { Button, FlatList } from 'react-native';
 import {
   StyleSheet,
   Text,
   View,
 } from 'react-native';
+import { PlayerDataContext, playerType } from '../service/PlayerProvider';
+import PlayerListItem from '../component/PlayerListItem';
 
 function PlayerListScreen({ navigation }: any): JSX.Element {
+  const { playerList } = useContext(PlayerDataContext);
+
+  function renderPlayer(player: playerType): JSX.Element {
+    return (
+      <PlayerListItem squadNo={player.squadNo} name={player.name} position={player.position} age={player.age} />
+    );
+  }
 
   return (
     <View>
-      <Button title='Show Players List' onPress={() => navigation.navigate('PlayersList')} />
-      <Button title='Add Player' onPress={() => navigation.navigate('AddPlayer')} />
+      <Button title='Show Players List' onPress={() => navigation.replace('PlayersList')} />
+      <Button title='Add Player' onPress={() => navigation.replace('AddPlayer')} />
       <Text>Players</Text>
-      <Button title='Show Player Details' onPress={() => navigation.navigate('PlayerDetails', { id: 123 })} />
+      <FlatList style={{height:'84%'}}
+        data={playerList}
+        renderItem={({ item, index, separators }) => renderPlayer(item)}
+        keyExtractor={player => player.squadNo}
+      />
     </View>
   );
 }

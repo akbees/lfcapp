@@ -7,7 +7,6 @@ import {
 } from 'react-native';
 
 function Loader(): JSX.Element {
-
     return (
         <>
             <View style={styles.container}>

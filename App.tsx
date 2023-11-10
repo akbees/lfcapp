@@ -13,6 +13,7 @@ function App(): JSX.Element {
         </PlayerDataProvider>
       </LoaderProvider>
     </AuthProvider>
+
   );
 }
 

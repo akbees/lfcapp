@@ -4,7 +4,7 @@ import playersData from '../data/playersData.json';
 import { LoaderContext } from './LoaderProvider';
 
 export type playerType = {
-  "id": string,
+  "squadNo": string,
   "name": string,
   "age": number,
   "position": string,
@@ -12,32 +12,36 @@ export type playerType = {
 
 type PlayerDataContextType = {
   playerList: Array<playerType>,
-  addPlayer: (playerList: Array<playerType>) => void,
+  addPlayer: (playerList: playerType) => boolean,
 };
 
 const PlayerDataContextDefault = {
   playerList: [],
-  addPlayer: (playerList: Array<Object>) => { },
+  addPlayer: (playerList: playerType) => { return false },
 };
 
 export const PlayerDataContext = createContext<PlayerDataContextType>(PlayerDataContextDefault);
 
 const PlayerDataProvider: FC<PropsWithChildren> = ({ children }: PropsWithChildren) => {
   const [playerList, setPlayerList] = useState(playersData);
-  const { isLoaderDisplay, toggleLoader } = useContext(LoaderContext);  
+  const { isLoaderDisplay, toggleLoader } = useContext(LoaderContext);
 
-  const addPlayer = (player: playerType) => {
-    toggleLoader(true);
-    let tempList = playerList;
+  const addNewPlayer = (player: playerType) => {
+    try {
+      let tempList = playerList;
 
-    tempList.push(player);
-    setPlayerList(tempList);
-    toggleLoader(false);
+      tempList.push(player);
+      setPlayerList(tempList);
+      
+      return true;
+    } catch (e) {
+      return false;
+    }
   };
 
   const PlayerDataContextValue = {
     playerList: playerList,
-    addPlayer: setPlayerList
+    addPlayer: addNewPlayer
   };
 
   return (

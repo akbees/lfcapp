@@ -6,35 +6,32 @@ import {
     View,
 } from 'react-native';
 
-import Fa from 'react-native-vector-icons/FontAwesome6';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import MatCom from 'react-native-vector-icons/MaterialCommunityIcons';
 
-
-function App(): JSX.Element {
+function Loader(): JSX.Element {
 
     return (
-        <ActivityIndicator />
+        <>
+            <View style={styles.container}>
+                <ActivityIndicator size="large" color="#1d9bf0" />
+                <Text style={styles.text}>Loading</Text>
+            </View>
+        </>
     );
 }
 
 const styles = StyleSheet.create({
-    sectionContainer: {
-        marginTop: 32,
-        paddingHorizontal: 24,
+    container: {
+        backgroundColor: 'rgba(10, 0, 0, 0.5)',
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
-    sectionTitle: {
-        fontSize: 24,
-        fontWeight: '600',
-    },
-    sectionDescription: {
-        marginTop: 8,
-        fontSize: 18,
-        fontWeight: '400',
-    },
-    highlight: {
-        fontWeight: '700',
+    text: {
+        color: 'white',
     },
 });
 
-export default App;
+export default Loader;

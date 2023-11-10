@@ -8,30 +8,24 @@ import {
 import { PlayerDataContext, playerType } from '../service/PlayerProvider';
 import PlayerListItem from '../component/PlayerListItem';
 
-// const PlayerListItem= (player:playerType)=> {
-// return (
-//   <View><Text>{player.name}</Text></View>
-// );
-//   };
-
 function PlayerListScreen({ navigation }: any): JSX.Element {
-  const {playerList} = useContext(PlayerDataContext);
+  const { playerList } = useContext(PlayerDataContext);
 
   function renderPlayer(player: playerType): JSX.Element {
     return (
-      <PlayerListItem id={player.id} name={player.name} position={player.position} age={player.age} />
+      <PlayerListItem squadNo={player.squadNo} name={player.name} position={player.position} age={player.age} />
     );
   }
 
   return (
     <View>
-      <Button title='Show Players List' onPress={() => navigation.navigate('PlayersList')} />
-      <Button title='Add Player' onPress={() => navigation.navigate('AddPlayer')} />
+      <Button title='Show Players List' onPress={() => navigation.replace('PlayersList')} />
+      <Button title='Add Player' onPress={() => navigation.replace('AddPlayer')} />
       <Text>Players</Text>
-      <FlatList
+      <FlatList style={{height:'84%'}}
         data={playerList}
-        renderItem={({item, index, separators}) => renderPlayer(item) }
-        keyExtractor={player => player.id}
+        renderItem={({ item, index, separators }) => renderPlayer(item)}
+        keyExtractor={player => player.squadNo}
       />
     </View>
   );

@@ -1,14 +1,17 @@
 import React from 'react';
 import {
+  Button,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
 
-function LoginScreen(): JSX.Element {
-  
+function LoginScreen({navigation, route}:any): JSX.Element {
   return(
-    <View><Text>Games</Text></View>
+    <View>
+      <Text>Login</Text>
+      <Text>Message: {route.params.message}</Text>
+    </View>
   );
 }
 

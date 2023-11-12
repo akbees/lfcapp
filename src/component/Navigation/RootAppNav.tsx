@@ -3,9 +3,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from '../../screen/LoginScreen';
 import MainTabNav from './MainTabNav';
 
+export type rootNavParamsType = {
+  Login?: {message:string},
+  MainNav: undefined
+};
 
 const RootAppNav = () => {
-  const Stack = createNativeStackNavigator();
+  const Stack = createNativeStackNavigator<rootNavParamsType>();
 
   return (
     <NavigationContainer>

@@ -27,6 +27,7 @@ const AuthProvider: FC<PropsWithChildren> = ({children}: PropsWithChildren) => {
       loginCredential.username == username &&
       loginCredential.password == password
     ) {
+      setIsLoggedIn(true);
       return true;
     } else {
       return false;

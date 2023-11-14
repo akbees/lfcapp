@@ -14,9 +14,9 @@ function LogoutBtn(): JSX.Element {
 
 const styles = StyleSheet.create({
     btn: {
-        borderRadius: 5,
-        paddingHorizontal: 5,
-        paddingVertical: 3,
+        borderRadius: 8,
+        paddingHorizontal: 10,
+        paddingVertical: 5,
         marginHorizontal: 8,
         backgroundColor: 'teal',
         fontSize: 12,

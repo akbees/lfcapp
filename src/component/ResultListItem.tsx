@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { GameDataType } from "../service/GameService";
 
@@ -23,33 +23,34 @@ const styles = StyleSheet.create({
         padding: 5,
         flexDirection: 'column',
         textAlign: 'center',
-        backgroundColor: "rgb(229, 228, 226)"
+        backgroundColor: "rgb(229, 228, 226)",
+        borderRadius: 8,
     },
     itemDate: {
         textAlign: 'center',
-        fontWeight:'bold'
+        fontWeight: 'bold'
     },
     resultData: {
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
     home: {
-        width:"40%",
-        textAlign:'right',
+        width: "40%",
+        textAlign: 'right',
         color: "teal",
         fontSize: 16,
         fontWeight: 'bold',
     },
     score: {
-        width:"15%",
-        textAlign:'center',
+        width: "15%",
+        textAlign: 'center',
         color: "teal",
         fontSize: 14,
         fontWeight: 'bold',
     },
     away: {
-        width:"40%",
-        textAlign:'left',
+        width: "40%",
+        textAlign: 'left',
         color: "teal",
         fontSize: 16,
         fontWeight: 'bold',

@@ -9,7 +9,6 @@ import Fa from 'react-native-vector-icons/FontAwesome6';
 import MatCom from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Text } from "react-native";
 
-
 const MainTabNav = () => {
   const Tab = createBottomTabNavigator();
   const { isLoggedIn } = useContext(AuthContext);

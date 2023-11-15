@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import {
-  Button,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -103,7 +102,7 @@ function AddPlayerScreen({ navigation }: any): JSX.Element {
         <Picker
           style={{ color: 'teal' }}
           selectedValue={position}
-          onValueChange={(itemValue, itemIndex) =>
+          onValueChange={(itemValue) =>
             setPosition(itemValue)
           }>
           <Picker.Item label="Select Position" enabled={false} />

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Button, FlatList } from 'react-native';
+import { FlatList, TouchableOpacity } from 'react-native';
 import {
   StyleSheet,
   Text,
@@ -13,13 +13,18 @@ function PlayerListScreen({ navigation }: any): JSX.Element {
 
   return (
     <View>
-      <Button title='Show Players List' onPress={() => navigation.replace('PlayersList')} />
-      <Button title='Add Player' onPress={() => navigation.replace('AddPlayer')} />
+      <View style={styles.links}>
+        <TouchableOpacity onPress={() => navigation.replace('PlayersList')} >
+          <Text style={styles.btn} >Players List</Text>
+        </TouchableOpacity>
 
-      <Text>Players</Text>
-      <FlatList style={{height:'84%'}}
+        <TouchableOpacity onPress={() => navigation.replace('AddPlayer')} >
+          <Text style={styles.btn} >Add Player</Text>
+        </TouchableOpacity>
+      </View>
+      <FlatList style={{ height: '92%' }}
         data={playerList}
-        renderItem={({ item, index, separators }) => PlayerListItem(item, navigation) }
+        renderItem={({ item, index, separators }) => PlayerListItem(item, navigation)}
         keyExtractor={player => player.squadNo}
       />
     </View>
@@ -27,10 +32,19 @@ function PlayerListScreen({ navigation }: any): JSX.Element {
 }
 
 const styles = StyleSheet.create({
+  links: {
+    flexDirection: 'row',
+    justifyContent: 'center'
+  },
   btn: {
-    width: 45,
-    height: 45,
+    backgroundColor: 'teal',
+    color: 'white',
+    width: 'auto',
     margin: 10,
+    paddingHorizontal: 8,
+    paddingVertical: 5,
+    borderRadius: 15,
+    fontSize: 14
   },
 });
 

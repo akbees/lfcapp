@@ -3,6 +3,7 @@ import {
   Button,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
@@ -11,8 +12,8 @@ import { TextInput } from 'react-native';
 import { LoaderContext } from '../service/LoaderProvider';
 
 function AddPlayerScreen({ navigation }: any): JSX.Element {
-  const { isLoaderDisplay, toggleLoader } = useContext(LoaderContext);
-  const { playerList, addPlayer } = useContext(PlayerDataContext);
+  const { toggleLoader } = useContext(LoaderContext);
+  const { addPlayer } = useContext(PlayerDataContext);
   const [squadNo, setSquadNo] = useState('');
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
@@ -48,6 +49,7 @@ function AddPlayerScreen({ navigation }: any): JSX.Element {
     if (status) {
       setTimeout(() => {
         toggleLoader(false);
+        navigation.replace('PlayersList');
       }, 2000);
     }
 
@@ -55,67 +57,131 @@ function AddPlayerScreen({ navigation }: any): JSX.Element {
 
   return (
     <View>
-      <Button title='Show Players List' onPress={() => navigation.replace('PlayersList')} />
-      <Button title='Add Player' onPress={() => navigation.replace('AddPlayer')} />
-      <Text>Add Player</Text>
-      <Text>Squad Number</Text>
-      <TextInput
-        inputMode='numeric'
-        style={styles.input}
-        onChangeText={(text) => setSquadNo(text)}
-        value={squadNo}
-      />
-      <View><Text style={styles.errorText}>{squadNoError}</Text></View>
+      <View style={styles.links}>
+        <TouchableOpacity onPress={() => navigation.replace('PlayersList')} >
+          <Text style={styles.btn} >Players List</Text>
+        </TouchableOpacity>
 
-      <Text>Name</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={(text) => setName(text)}
-        value={name}
-      />
-      <View><Text style={styles.errorText}>{nameError}</Text></View>
+        <TouchableOpacity onPress={() => navigation.replace('AddPlayer')} >
+          <Text style={styles.btn} >Add Player</Text>
+        </TouchableOpacity>
+      </View>
 
-      <Text>Age</Text>
-      <TextInput inputMode='numeric'
-        style={styles.input}
-        onChangeText={(text) => setAge(text)}
-        value={age}
-      />
-      <View><Text style={styles.errorText}>{ageError}</Text></View>
+      <View style={styles.formRow}>
+        <Text style={styles.label}>Squad Number</Text>
+        <TextInput
+          inputMode='numeric'
+          style={styles.input}
+          onChangeText={(text) => setSquadNo(text)}
+          value={squadNo}
+        />
+        <View><Text style={styles.errorText}>{squadNoError}</Text></View>
+      </View>
 
-      <Picker
-        selectedValue={position}
-        onValueChange={(itemValue, itemIndex) =>
-          setPosition(itemValue)
-        }>
-        <Picker.Item label="Select Position" enabled={false} />
-        <Picker.Item label="Goalkeeper" value="Goalkeeper" />
-        <Picker.Item label="Defender" value="Defender" />
-        <Picker.Item label="Midfielder" value="Midfielder" />
-        <Picker.Item label="Forward" value="Forward" />
-      </Picker>
-      <View><Text style={styles.errorText}>{positionError}</Text></View>
+      <View style={styles.formRow}>
+        <Text style={styles.label}>Name</Text>
+        <TextInput
+          style={styles.input}
+          onChangeText={(text) => setName(text)}
+          value={name}
+        />
+        <View><Text style={styles.errorText}>{nameError}</Text></View>
+      </View>
 
-      <Button title='Add Player' onPress={() => addPlayerHandler()} />
+      <View style={styles.formRow}>
+        <Text style={styles.label}>Age</Text>
+        <TextInput inputMode='numeric'
+          style={styles.input}
+          onChangeText={(text) => setAge(text)}
+          value={age}
+        />
+        <View><Text style={styles.errorText}>{ageError}</Text></View>
+      </View>
+
+      <View style={styles.formRow}>
+        <Text style={styles.label}>Position</Text>
+        <Picker
+          style={{ color: 'teal' }}
+          selectedValue={position}
+          onValueChange={(itemValue, itemIndex) =>
+            setPosition(itemValue)
+          }>
+          <Picker.Item label="Select Position" enabled={false} />
+          <Picker.Item label="Goalkeeper" value="Goalkeeper" />
+          <Picker.Item label="Defender" value="Defender" />
+          <Picker.Item label="Midfielder" value="Midfielder" />
+          <Picker.Item label="Forward" value="Forward" />
+        </Picker>
+        <View><Text style={styles.errorText}>{positionError}</Text></View>
+      </View>
+
+      <View style={styles.formAction}>
+        <TouchableOpacity onPress={() => addPlayerHandler()}>
+          <Text style={styles.formBtn}>Add</Text>
+        </TouchableOpacity>
+      </View>
+
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  btn: {
-    width: 45,
-    height: 45,
-    margin: 10,
+  formRow: {
+    marginTop: 8,
+    marginBottom: 5,
+    marginHorizontal: 25,
+    padding: 5,
+    flexDirection: 'column',
+    backgroundColor: "rgb(229, 228, 226)",
+    borderRadius: 8,
   },
   input: {
-    height: 40,
-    margin: 12,
+    height: 35,
+    marginHorizontal: 12,
     borderWidth: 1,
+    borderRadius: 8,
     padding: 10,
   },
+  label: {
+    color: 'teal',
+    fontWeight: 'bold',
+    marginLeft: 16,
+    marginBottom: 3,
+  },
   errorText: {
-    color:'red',
-  }
+    color: 'red',
+    marginLeft: 16,
+  },
+  formAction: {
+    marginTop: 8,
+    marginBottom: 5,
+    marginHorizontal: 25,
+    padding: 5,
+    flexDirection: 'row',
+    justifyContent: 'center'
+  },
+  formBtn: {
+    color: 'white',
+    backgroundColor: 'teal',
+    width: 'auto',
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+  },
+  links: {
+    flexDirection: 'row',
+    justifyContent: 'center'
+  },
+  btn: {
+    backgroundColor: 'teal',
+    color: 'white',
+    width: 'auto',
+    margin: 10,
+    paddingHorizontal: 8,
+    paddingVertical: 5,
+    borderRadius: 15,
+    fontSize: 14
+  },
 });
 
 export default AddPlayerScreen;

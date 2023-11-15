@@ -32,7 +32,7 @@ const PlayerStackNav = () => {
       screenListeners={
         ({ navigation, route }) => ({
           state: () => {
-            if (route.name == "AddPlayer") {
+            if (route.name == "AddPlayer" && !isLoggedIn) {
               navigation.navigate("Login", { message: 'Login Required!' });
             }
           }

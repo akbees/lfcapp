@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Button, FlatList, TouchableOpacity } from 'react-native';
+import { FlatList, TouchableOpacity } from 'react-native';
 import {
   StyleSheet,
   Text,

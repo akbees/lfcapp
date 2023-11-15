@@ -12,8 +12,8 @@ import { TextInput } from 'react-native';
 import { LoaderContext } from '../service/LoaderProvider';
 
 function AddPlayerScreen({ navigation }: any): JSX.Element {
-  const { isLoaderDisplay, toggleLoader } = useContext(LoaderContext);
-  const { playerList, addPlayer } = useContext(PlayerDataContext);
+  const { toggleLoader } = useContext(LoaderContext);
+  const { addPlayer } = useContext(PlayerDataContext);
   const [squadNo, setSquadNo] = useState('');
   const [name, setName] = useState('');
   const [age, setAge] = useState('');

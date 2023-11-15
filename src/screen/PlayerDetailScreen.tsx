@@ -1,12 +1,11 @@
 import React from 'react';
 import {
-  Button,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
 
-function PlayerDetailScreen({ navigation, route }: any): JSX.Element {
+function PlayerDetailScreen({ route }: any): JSX.Element {
   const player = route.params.player;
 
   return (

@@ -1,53 +1,36 @@
 import React from "react";
-import { Button, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { playerType } from "../service/PlayerProvider";
 import { playerNavParamsType } from "./Navigation/PlayerStackNav";
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 function PlayerListItem(player: playerType, navigation: NativeStackNavigationProp<playerNavParamsType>): JSX.Element {
-    const positionIcon = (position: string) => {
 
+    const positionIconSource = (position: string) => {
         if (position === "Goalkeeper") {
-            return (
-                <Image
-                    style={styles.tinyLogo}
-                    source={require("../images/goalkeeper.png")}
-                />
-            );
+            return (require("../images/goalkeeper.png"));
         }
 
         if (position === "Defender") {
-            return (
-                <Image
-                    style={styles.tinyLogo}
-                    source={require("../images/defender.png")}
-                />
-            );
+            return (require("../images/defender.png"));
         }
 
         if (position === "Midfielder") {
-            return (
-                <Image
-                    style={styles.tinyLogo}
-                    source={require("../images/midfielder.png")}
-                />
-            );
+            return (require("../images/midfielder.png"));
         }
 
         if (position === "Forward") {
-            return (
-                <Image
-                    style={styles.tinyLogo}
-                    source={require("../images/forward.png")}
-                />
-            );
+            return (require("../images/forward.png"));
         }
     };
     return (
         <TouchableOpacity activeOpacity={5} onPress={() => navigation.navigate('PlayerDetails', { player })} >
             <View style={styles.playerItem}>
                 <View>
-                    {positionIcon(player.position)}
+                    <Image
+                        style={styles.tinyLogo}
+                        source={positionIconSource(player.position)}
+                    />
                 </View>
                 <View>
                     <Text style={styles.playerName}>{player.name}</Text>

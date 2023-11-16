@@ -19,7 +19,6 @@ function LoginScreen({ navigation, route }: any): JSX.Element {
     let isLogin = login(username, password);
 
     if (!isLogin) {
-      console.log("implement alert!");
       Alert.alert('Invalid Username and password!');
       setUsername("");
       setPassword("");

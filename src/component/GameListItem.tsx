@@ -2,13 +2,15 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { GameDataType } from "../service/GameService";
 
-function ResultListItem(game: GameDataType): JSX.Element {
+function GameListItem(game: GameDataType): JSX.Element {
     return (
         <View style={styles.item}>
             <Text style={styles.itemDate}>{game.date}</Text>
-            <View style={styles.resultData}>
+            <View style={styles.gameData}>
                 <Text style={styles.home}>{game.home}</Text>
-                <Text style={styles.score}>{game.score}</Text>
+                <Text style={styles.score}>
+                    {(game.score != '') ? game.score : "V"}
+                </Text>
                 <Text style={styles.away}>{game.away}</Text>
             </View>
         </View>
@@ -30,7 +32,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontWeight: 'bold'
     },
-    resultData: {
+    gameData: {
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
@@ -57,5 +59,5 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ResultListItem;
+export default GameListItem;
 

@@ -24,9 +24,9 @@ function LoginScreen({ navigation, route }: any): JSX.Element {
 
   return (
     <View>
-      <View style={styles.logoIcon}>
+      <View style={styles.appLogo}>
         <Image
-          style={styles.appLogo}
+          style={styles.logoPlaceholder}
           source={require('../images/emblem.png')}
         />
       </View>
@@ -58,12 +58,12 @@ function LoginScreen({ navigation, route }: any): JSX.Element {
 }
 
 const styles = StyleSheet.create({
-  logoIcon: {
+  appLogo: {
     flexDirection: 'row',
     justifyContent: 'center',
     marginVertical: 8
   },
-  appLogo: {
+  logoPlaceholder: {
     justifyContent:'center',
     width: 200,
     height:200,

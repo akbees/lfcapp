@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  Alert
 } from 'react-native';
 import { AuthContext } from '../service/AuthProvider';
 
@@ -17,8 +18,10 @@ function LoginScreen({ navigation, route }: any): JSX.Element {
   function loginHandler() {
     let isLogin = login(username, password);
 
-    if(!isLogin) {
-      console.log("implement alert!");
+    if (!isLogin) {
+      Alert.alert('Invalid Username and password!');
+      setUsername("");
+      setPassword("");
     }
   }
 
@@ -41,6 +44,7 @@ function LoginScreen({ navigation, route }: any): JSX.Element {
 
         <Text style={styles.label}>Password</Text>
         <TextInput
+          secureTextEntry
           style={styles.input}
           onChangeText={(text) => setPassword(text)}
           value={password}
@@ -64,9 +68,13 @@ const styles = StyleSheet.create({
     marginVertical: 8
   },
   logoPlaceholder: {
-    justifyContent:'center',
+    justifyContent: 'center',
     width: 200,
-    height:200,
+    height: 200,
+    borderRadius:30,
+    borderColor:'teal',
+    borderWidth:2
+
   },
   formContainer: {
     marginVertical: 15,

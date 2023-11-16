@@ -1,44 +1,61 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {
-  Button,
+  SectionList,
   StyleSheet,
-  Text,
   View,
 } from 'react-native';
-
-import Fa from 'react-native-vector-icons/FontAwesome6';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import MatCom from 'react-native-vector-icons/MaterialCommunityIcons';
-import { LoaderContext } from '../service/LoaderProvider';
-
+import { ResultList, FixtureList } from '../service/GameService';
+import { Text } from 'react-native';
+import GameListItem from '../component/GameListItem';
 
 function HomeScreen(): JSX.Element {
 
-  const { isLoaderDisplay, toggleLoader } = useContext(LoaderContext);
+  const gamesData = [
+    {
+      title: 'Last Five Results',
+      data: ResultList.slice(-5)
+    },
+    {
+      title: 'Next Five Fixtures',
+      data: FixtureList.slice(-5)
+    },
+  ]
+    ;
 
-  const loaderHandler = () => {
-    toggleLoader(true)
-    setTimeout(() => toggleLoader(false), 2000);
-  };
-  
   return (
-    <>
-      <Fa name="house-chimney" size={30} color="teal" />
-      <Fa name="person-running" size={30} color="teal" />
-      <Fa name="user-plus" size={30} color="teal" />
-      <AntDesign name="addusergroup" size={30} color="teal" />
-      <MatCom name="soccer-field" size={30} color="teal" />
-      <MatCom name="soccer" size={30} color="teal" />
-      <Button title='loader' onPress={() => loaderHandler()} />
-    </>
+      <View style={{padding: 10}}>
+        <SectionList
+          sections={gamesData}
+          keyExtractor={(item, index) => item.id + index}
+          renderItem={({ item }) => (GameListItem(item))}
+          renderSectionHeader={
+            ({ section: { title } }) => (
+              <Text style={styles.sectionListTitle}>
+                {title}
+              </Text>
+            )
+          }
+          SectionSeparatorComponent={() => (
+            <View style={{ borderTopColor: 'teal', borderTopWidth: 1 }}><Text></Text></View>
+          )}
+        />
+      </View>
   );
 }
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  section: {
+    marginVertical: 15,
+    marginBottom: 5,
+    marginHorizontal: 25,
+    paddingHorizontal: 5,
+    paddingBottom: 15,
   },
+  sectionListTitle: {
+    color: 'black',
+    fontSize:18,
+    textAlign: 'center',
+  }
 });
 
 export default HomeScreen;

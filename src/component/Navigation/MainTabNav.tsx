@@ -44,8 +44,8 @@ const MainTabNav = () => {
         }
       })
     }>
-      <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Players" component={PlayerStackNav} options={{ headerShown: false }} />
+      <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Games" component={GameTabNav} options={{ headerShown: true }} />
     </Tab.Navigator>
   );

@@ -1,19 +1,18 @@
 import React from 'react';
 import { ResultList } from '../service/GameService';
-import ResultListItem from '../component/ResultListItem';
 import {
   FlatList,
   StyleSheet,
-  Text,
   View,
 } from 'react-native';
+import GameListItem from '../component/GameListItem';
 
 function ResultScreen(): JSX.Element {
-  return(
+  return (
     <View>
-      <FlatList style={{height:'100%'}}
+      <FlatList style={{ height: '100%' }}
         data={ResultList}
-        renderItem={({ item, index, separators }) => ResultListItem(item) }
+        renderItem={({ item, index, separators }) => GameListItem(item)}
         keyExtractor={game => game.id}
       />
     </View>

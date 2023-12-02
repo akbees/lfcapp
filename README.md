@@ -1,15 +1,11 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
-
 # Getting Started
-
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+The LFC App
 
 ## install libraries
 ```bash
 # using npm
 npm install
 ```
-
 
 ## Step 1: Start the Metro Server
 
@@ -20,9 +16,6 @@ To start Metro, run the following command from the _root_ of your React Native p
 ```bash
 # using npm
 npm start
-
-# OR using Yarn
-yarn start
 ```
 
 ## Step 2: Start your Application
@@ -38,3 +31,9 @@ npm run android
 # OR using Yarn
 yarn android
 ```
+
+# Accessing the App
+
+## Login Credentials
+   username: root
+   password: secret001
